@@ -86,7 +86,7 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: #f0f0f5;
+  background-color: #f5f0f1;
   transition: all 0.3s ease-in-out;
 }
 
@@ -168,7 +168,7 @@ section {
   margin: auto;
   border: 4px solid #6d6d75;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  background-color: #2e2e36;
+  background-color: #362e2f;
 }
 
 .section__pic-container img {
@@ -212,7 +212,7 @@ section {
 
 .icon {
   cursor: pointer;
-  height: 2rem;
+  height: 2.3rem;
   filter: invert(90%);
 }
 
@@ -249,26 +249,7 @@ section {
   position: relative;
 }
 
-/* Center the about picture container */
-#about .section__pic-container {
-  width: 300px;
-  margin: 0 auto 2rem auto;
-  border-radius: 2rem;
-  overflow: hidden;
-  border: 4px solid #6d6d75;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  background-color: #2e2e36;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.about-pic {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 2rem;
-}
 
 #about .about-containers {
   display: flex;
