@@ -65,6 +65,7 @@ a:hover {
   cursor: default;
 }
 
+
 #hamburger-nav {
   display: none;
 }
@@ -72,6 +73,7 @@ a:hover {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  z-index: 1000;
 }
 
 .hamburger-icon {
@@ -100,6 +102,7 @@ a:hover {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   border-radius: 0.5rem;
+  z-index: 1000;
 }
 
 .menu-links a {
@@ -435,6 +438,116 @@ footer {
 footer p {
   text-align: center;
   color: #a0a0a8;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* Hero stagger fade-in */
+.animate-hero {
+  animation: fadeInUp 0.7s ease both;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover lift — combined transition avoids conflict with .reveal */
+.details-container {
+  transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.details-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Project image zoom on card hover */
+.color-container {
+  overflow: hidden;
+}
+.project-img {
+  transition: transform 0.4s ease;
+}
+.color-container:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* Profile image float */
+.section__pic-container {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Nav link underline slide */
+.nav-links a {
+  position: relative;
+}
+.nav-links a:hover {
+  text-decoration: none;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #f0f0f5;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Arrow bounce on hover */
+.arrow:hover {
+  animation: bounceDown 0.6s ease infinite;
+}
+
+/* Social icon scale */
+#socials-container img {
+  transition: transform 0.2s ease;
+}
+#socials-container img:hover {
+  transform: scale(1.2);
+}
+
+/* Button press micro-interaction */
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Responsive tweaks */
